@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    
+    <!--
+        Added the entity Documents.
+    -->
+    <changeSet id="20210116163209-1" author="jhipster">
+        <createTable tableName="documents" remarks="The Documents entity.">
+            <column name="id" type="bigint">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="doctype" type="varchar(255)" remarks="The firstname attribute.">
+                <constraints nullable="true" />
+            </column>
+            <column name="filename" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="date" type="datetime">
+                <constraints nullable="true" />
+            </column>
+            <column name="folderguid" type="datetime">
+                <constraints nullable="true" />
+            </column>
+            <column name="folder" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="docnumber" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="docdate" type="datetime">
+                <constraints nullable="true" />
+            </column>
+            <column name="description" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="datetime" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="typedoc" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="folderid_id" type="bigint">
+                <constraints nullable="true" />
+            </column>
+            <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here -->
+        </createTable>
+        <dropDefaultValue tableName="documents" columnName="date" columnDataType="datetime"/>
+        <dropDefaultValue tableName="documents" columnName="folderguid" columnDataType="datetime"/>
+        <dropDefaultValue tableName="documents" columnName="docdate" columnDataType="datetime"/>
+    </changeSet>
+
+    <changeSet id="20210116163209-1-relations" author="jhipster">
+
+    </changeSet>
+    <!-- jhipster-needle-liquibase-add-changeset - JHipster will add changesets here -->
+
+    <!--
+        Load sample data generated with Faker.js
+        - This data can be easily edited using a CSV editor (or even MS Excel) and
+          is located in the 'src/main/resources/config/liquibase/fake-data' directory
+        - By default this data is applied when running with the JHipster 'dev' profile.
+          This can be customized by adding or removing 'faker' in the 'spring.liquibase.contexts'
+          Spring Boot configuration key.
+    -->
+    <changeSet id="20210116163209-1-data" author="jhipster" context="faker">
+        <loadData
+                  file="config/liquibase/fake-data/documents.csv"
+                  separator=";"
+                  tableName="documents">
+            <column name="id" type="numeric"/>
+            <column name="doctype" type="string"/>
+            <column name="filename" type="string"/>
+            <column name="date" type="datetime"/>
+            <column name="folderguid" type="datetime"/>
+            <column name="folder" type="string"/>
+            <column name="docnumber" type="string"/>
+            <column name="docdate" type="datetime"/>
+            <column name="description" type="string"/>
+            <column name="datetime" type="string"/>
+            <column name="typedoc" type="string"/>
+            <!-- jhipster-needle-liquibase-add-loadcolumn - JHipster (and/or extensions) can add load columns here -->
+        </loadData>
+    </changeSet>
+
+</databaseChangeLog>

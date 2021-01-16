@@ -1,0 +1,68 @@
+{
+  "name": "Documents",
+  "fields": [
+    {
+      "fieldName": "doctype",
+      "fieldType": "String",
+      "javadoc": "The firstname attribute."
+    },
+    {
+      "fieldName": "filename",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "date",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "folderguid",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "folder",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "docnumber",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "docdate",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "description",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "datetime",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "typedoc",
+      "fieldType": "TypeDoc",
+      "fieldValues": "ShipBillOfLading,OtherShipDocuments,CoastalBillOfLading,AcceptanceCertificate,ActOfLoading,StatementOfWriteOff,LoadingInstructions,RailwayConsignmentGU27,OtherShoreDocumentsAndCertificates"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "folders",
+      "otherEntityRelationshipName": "documents",
+      "relationshipName": "folderid",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20210116163209",
+  "javadoc": "The Documents entity.",
+  "entityTableName": "documents",
+  "dto": "no",
+  "pagination": "pagination",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

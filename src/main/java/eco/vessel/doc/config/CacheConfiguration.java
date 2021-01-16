@@ -50,6 +50,9 @@ public class CacheConfiguration {
             createCache(cm, eco.vessel.doc.domain.User.class.getName());
             createCache(cm, eco.vessel.doc.domain.Authority.class.getName());
             createCache(cm, eco.vessel.doc.domain.User.class.getName() + ".authorities");
+            createCache(cm, eco.vessel.doc.domain.Folders.class.getName());
+            createCache(cm, eco.vessel.doc.domain.Folders.class.getName() + ".documents");
+            createCache(cm, eco.vessel.doc.domain.Documents.class.getName());
             // jhipster-needle-ehcache-add-entry
         };
     }
