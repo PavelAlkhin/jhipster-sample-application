@@ -1,0 +1,106 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-documents-heading" jhiTranslate="docsApplicationJHipsterApp.documents.home.createOrEditLabel">Create or edit a Documents</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="docsApplicationJHipsterApp.documents.doctype" for="field_doctype" [ngbTooltip]="'docsApplicationJHipsterApp.documents.help.doctype' | translate">Doctype</label>
+                    <input type="text" class="form-control" name="doctype" id="field_doctype"
+                           formControlName="doctype"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="docsApplicationJHipsterApp.documents.filename" for="field_filename">Filename</label>
+                    <input type="text" class="form-control" name="filename" id="field_filename"
+                           formControlName="filename"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="docsApplicationJHipsterApp.documents.date" for="field_date">Date</label>
+                    <div class="d-flex">
+                        <input id="field_date" type="datetime-local" class="form-control" name="date" formControlName="date" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="docsApplicationJHipsterApp.documents.folderguid" for="field_folderguid">Folderguid</label>
+                    <div class="d-flex">
+                        <input id="field_folderguid" type="datetime-local" class="form-control" name="folderguid" formControlName="folderguid" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="docsApplicationJHipsterApp.documents.folder" for="field_folder">Folder</label>
+                    <input type="text" class="form-control" name="folder" id="field_folder"
+                           formControlName="folder"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="docsApplicationJHipsterApp.documents.docnumber" for="field_docnumber">Docnumber</label>
+                    <input type="text" class="form-control" name="docnumber" id="field_docnumber"
+                           formControlName="docnumber"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="docsApplicationJHipsterApp.documents.docdate" for="field_docdate">Docdate</label>
+                    <div class="d-flex">
+                        <input id="field_docdate" type="datetime-local" class="form-control" name="docdate" formControlName="docdate" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="docsApplicationJHipsterApp.documents.description" for="field_description">Description</label>
+                    <input type="text" class="form-control" name="description" id="field_description"
+                           formControlName="description"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="docsApplicationJHipsterApp.documents.datetime" for="field_datetime">Datetime</label>
+                    <input type="text" class="form-control" name="datetime" id="field_datetime"
+                           formControlName="datetime"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="docsApplicationJHipsterApp.documents.typedoc" for="field_typedoc">Typedoc</label>
+                    <select class="form-control" name="typedoc" formControlName="typedoc" id="field_typedoc">
+                        <option value="ShipBillOfLading">{{ 'docsApplicationJHipsterApp.TypeDoc.ShipBillOfLading' | translate }}</option>
+                        <option value="OtherShipDocuments">{{ 'docsApplicationJHipsterApp.TypeDoc.OtherShipDocuments' | translate }}</option>
+                        <option value="CoastalBillOfLading">{{ 'docsApplicationJHipsterApp.TypeDoc.CoastalBillOfLading' | translate }}</option>
+                        <option value="AcceptanceCertificate">{{ 'docsApplicationJHipsterApp.TypeDoc.AcceptanceCertificate' | translate }}</option>
+                        <option value="ActOfLoading">{{ 'docsApplicationJHipsterApp.TypeDoc.ActOfLoading' | translate }}</option>
+                        <option value="StatementOfWriteOff">{{ 'docsApplicationJHipsterApp.TypeDoc.StatementOfWriteOff' | translate }}</option>
+                        <option value="LoadingInstructions">{{ 'docsApplicationJHipsterApp.TypeDoc.LoadingInstructions' | translate }}</option>
+                        <option value="RailwayConsignmentGU27">{{ 'docsApplicationJHipsterApp.TypeDoc.RailwayConsignmentGU27' | translate }}</option>
+                        <option value="OtherShoreDocumentsAndCertificates">{{ 'docsApplicationJHipsterApp.TypeDoc.OtherShoreDocumentsAndCertificates' | translate }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="docsApplicationJHipsterApp.documents.folderid" for="field_folderid">Folderid</label>
+                    <select class="form-control" id="field_folderid" name="folderid" formControlName="folderid">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="foldersOption.id === editForm.get('folderid')!.value?.id ? editForm.get('folderid')!.value : foldersOption" *ngFor="let foldersOption of folders; trackBy: trackById">{{ foldersOption.id }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

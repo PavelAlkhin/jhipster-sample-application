@@ -1,0 +1,23 @@
+{
+  "docsApplicationJHipsterApp": {
+    "folders": {
+      "home": {
+        "title": "Folders",
+        "createLabel": "Создать новый Folders",
+        "createOrEditLabel": "Создать или отредактировать Folders",
+        "notFound": "No Folders found"
+      },
+      "created": "Новый Folders создан с идентификатором {{ param }}",
+      "updated": "Folders обновлен с идентификатором {{ param }}",
+      "deleted": "Folders удален с идентификатором {{ param }}",
+      "delete": {
+        "question": "Вы уверены что хотите удалить Folders {{ id }}?"
+      },
+      "detail": {
+        "title": "Folders"
+      },
+      "folder": "Folder",
+      "documents": "Documents"
+    }
+  }
+}

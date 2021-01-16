@@ -1,0 +1,61 @@
+
+entity Folders {
+	folder String
+}
+
+/**
+ * The Documents entity.
+ */
+entity Documents {
+	/**
+	* The firstname attribute.
+	*/
+	doctype String,
+	filename String,
+	date Instant,
+	folderguid Instant,
+	folder String,
+    docnumber String,
+    docdate Instant,
+    description String,
+  	datetime String,
+    typedoc TypeDoc
+}
+
+enum TypeDoc {
+    ShipBillOfLading,
+	OtherShipDocuments,
+	CoastalBillOfLading,
+	AcceptanceCertificate,
+	ActOfLoading,
+	StatementOfWriteOff,
+	LoadingInstructions,
+	RailwayConsignmentGU27,
+	OtherShoreDocumentsAndCertificates
+}
+
+
+// defining multiple OneToMany relationships with comments
+relationship OneToMany {
+	Folders to Documents{folderid}
+}
+
+
+
+
+// Set pagination options
+paginate Folders, Documents with infinite-scroll
+paginate Documents with pagination
+
+// Use Data Transfer Objects (DTO)
+// dto * with mapstruct
+
+// Set service options to all except few
+service all with serviceImpl except Folders, Documents
+
+// Set an angular suffix
+// angularSuffix * with mySuffix
+
+
+
+

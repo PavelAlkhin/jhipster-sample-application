@@ -1,0 +1,72 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="documents">
+            <h2><span jhiTranslate="docsApplicationJHipsterApp.documents.detail.title">Documents</span> {{ documents.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="docsApplicationJHipsterApp.documents.doctype" [ngbTooltip]="'docsApplicationJHipsterApp.documents.help.doctype' | translate">Doctype</span></dt>
+                <dd>
+                    <span>{{ documents.doctype }}</span>
+                </dd>
+                <dt><span jhiTranslate="docsApplicationJHipsterApp.documents.filename">Filename</span></dt>
+                <dd>
+                    <span>{{ documents.filename }}</span>
+                </dd>
+                <dt><span jhiTranslate="docsApplicationJHipsterApp.documents.date">Date</span></dt>
+                <dd>
+                    <span>{{ documents.date }}</span>
+                </dd>
+                <dt><span jhiTranslate="docsApplicationJHipsterApp.documents.folderguid">Folderguid</span></dt>
+                <dd>
+                    <span>{{ documents.folderguid }}</span>
+                </dd>
+                <dt><span jhiTranslate="docsApplicationJHipsterApp.documents.folder">Folder</span></dt>
+                <dd>
+                    <span>{{ documents.folder }}</span>
+                </dd>
+                <dt><span jhiTranslate="docsApplicationJHipsterApp.documents.docnumber">Docnumber</span></dt>
+                <dd>
+                    <span>{{ documents.docnumber }}</span>
+                </dd>
+                <dt><span jhiTranslate="docsApplicationJHipsterApp.documents.docdate">Docdate</span></dt>
+                <dd>
+                    <span>{{ documents.docdate }}</span>
+                </dd>
+                <dt><span jhiTranslate="docsApplicationJHipsterApp.documents.description">Description</span></dt>
+                <dd>
+                    <span>{{ documents.description }}</span>
+                </dd>
+                <dt><span jhiTranslate="docsApplicationJHipsterApp.documents.datetime">Datetime</span></dt>
+                <dd>
+                    <span>{{ documents.datetime }}</span>
+                </dd>
+                <dt><span jhiTranslate="docsApplicationJHipsterApp.documents.typedoc">Typedoc</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'docsApplicationJHipsterApp.TypeDoc.' + documents.typedoc }}">{{ documents.typedoc }}</span>
+                </dd>
+                <dt><span jhiTranslate="docsApplicationJHipsterApp.documents.folderid">Folderid</span></dt>
+                <dd>
+                    <div *ngIf="documents.folderid">
+                        <a [routerLink]="['/folders', documents.folderid?.id, 'view']">{{ documents.folderid?.id }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/documents', documents.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

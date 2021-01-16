@@ -1,0 +1,35 @@
+{
+  "docsApplicationJHipsterApp": {
+    "documents": {
+      "home": {
+        "title": "Documents",
+        "createLabel": "Создать новый Documents",
+        "createOrEditLabel": "Создать или отредактировать Documents",
+        "notFound": "No Documents found"
+      },
+      "created": "Новый Documents создан с идентификатором {{ param }}",
+      "updated": "Documents обновлен с идентификатором {{ param }}",
+      "deleted": "Documents удален с идентификатором {{ param }}",
+      "delete": {
+        "question": "Вы уверены что хотите удалить Documents {{ id }}?"
+      },
+      "detail": {
+        "title": "Documents"
+      },
+      "doctype": "Doctype",
+      "filename": "Filename",
+      "date": "Date",
+      "folderguid": "Folderguid",
+      "folder": "Folder",
+      "docnumber": "Docnumber",
+      "docdate": "Docdate",
+      "description": "Description",
+      "datetime": "Datetime",
+      "typedoc": "Typedoc",
+      "folderid": "Folderid",
+      "help": {
+        "doctype": "The firstname attribute."
+      }
+    }
+  }
+}

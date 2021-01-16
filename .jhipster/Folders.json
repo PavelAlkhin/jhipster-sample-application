@@ -1,0 +1,28 @@
+{
+  "name": "Folders",
+  "fields": [
+    {
+      "fieldName": "folder",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "documents",
+      "otherEntityRelationshipName": "folderid",
+      "relationshipName": "documents"
+    }
+  ],
+  "changelogDate": "20210116163109",
+  "entityTableName": "folders",
+  "dto": "no",
+  "pagination": "infinite-scroll",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}
